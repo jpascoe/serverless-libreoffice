@@ -1,10 +1,10 @@
-FROM amazonlinux:2.0.20190508 as lobuild
+FROM amazonlinux:2 as lobuild
 
 # see https://stackoverflow.com/questions/2499794/how-to-fix-a-locale-setting-warning-from-perl
 ENV LC_CTYPE=en_US.UTF-8
 ENV LC_ALL=en_US.UTF-8
 
-ENV LIBREOFFICE_VERSION=6.2.1.2
+ENV LIBREOFFICE_VERSION=7.5.4.2
 
 # install basic stuff required for compilation
 RUN yum install -y yum-utils \
@@ -144,7 +144,7 @@ RUN tar -cvf /tmp/lo.tar instdir/
 
 FROM amazonlinux:2.0.20190508 as brotli
 
-ENV BROTLI_VERSION=1.0.7
+ENV BROTLI_VERSION=1.0.9
 
 WORKDIR /tmp
 
